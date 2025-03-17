@@ -36,10 +36,10 @@ export class AppConfigService {
   }
   
   // Authentication configuration  
-  authKey(): string {
+  get authKey(): string {
     return this.configService.get<string>('AUTH_USER_NAME','testuser');
   }
-  authSecret(): string {
+  get authSecret(): string {
     return this.configService.get<string>('AUTH_USER_PASS','testpassword');
   }
 }

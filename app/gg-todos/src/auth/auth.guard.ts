@@ -63,7 +63,7 @@ export class BasicAuthGuard implements CanActivate {
     console.log('Config Key:', u()); 
     console.log('Config Secret:', p());   */
 
-    if (username === u() && password === p()) {
+    if (username === u && password === p) {
       return true;
     }
 
