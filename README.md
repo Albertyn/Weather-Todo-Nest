@@ -1,11 +1,9 @@
 # Weather-Todo-Nest
 a nest.js demo project
 
-I was using a container node:latest to develop this demo so therefore the project structure.
-Once you have cloned tthis repo navigate to 
+Once you have cloned this repo navigate to 
 
 ## Project setup
-
 ```bash
 $ cd gg-todos/
 $ npm install
@@ -44,14 +42,19 @@ localhost:3000/todos/
 localhost:3000/api-doc/
 ```
 
-## Compile and run the project
+## Docker
 
+Build Image:
 ```bash
-# development
-$ npm run start
-
-# watch mode - some issues while using containers
-$ npm run start:dev
+# build your image 
+$ docker build . -t gg-todo:mvp .
+# and run it 
+docker run -d -p 3000:3000 --env-file .env.development --name "gg-todo-mvp" gg-todo:mvp
+```
+Run using docker-compose
+- note the env_file: - ".env.development"
+```bash
+$ docker-compose --env-file ./.env.development up
 ```
 
 ## Run tests
@@ -59,14 +62,7 @@ $ npm run start:dev
 ```bash
 # unit tests
 $ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
-
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
@@ -79,20 +75,3 @@ $ npm run test:cov
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Docker
-
-- NB: required environment variable when running the Docker container NODE_ENV 
-
-Build Image:
-```bash
-# build your image 
-$ docker build . -t gg-todo:mvp .
-# and run it 
-docker run -d -p 3000:3000 --env-file .env.development --name "gg-todo-mvp" gg-todo:mvp
-```
-
-Run using docker-compose
-- note the env_file: - ".env.development"
-```bash
-$ docker-compose --env-file ./.env.development up
-```
