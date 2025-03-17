@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env.development
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      PORT: ${PORT}
+      WEATHER_URL: ${WEATHER_URL}
+      GEOCODE_URL: ${GEOCODE_URL}
+      AUTH_USER_NAME: ${AUTH_USER_NAME}
+      AUTH_USER_PASS: ${AUTH_USER_PASS}

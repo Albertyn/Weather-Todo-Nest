@@ -79,10 +79,20 @@ $ npm run test:cov
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Deployment
+## Docker
 
+- NB: required environment variable when running the Docker container NODE_ENV 
 
+Build Image:
 ```bash
-# todo: in proj - for node js apps there is tricky build step re node 
-$ docker-compose up 
+# build your image 
+$ docker build . -t gg-todo:mvp .
+# and run it 
+docker run -d -p 3000:3000 --env-file .env.development --name "gg-todo-mvp" gg-todo:mvp
+```
+
+Run using docker-compose
+- note the env_file: - ".env.development"
+```bash
+$ docker-compose --env-file ./.env.development up
 ```
